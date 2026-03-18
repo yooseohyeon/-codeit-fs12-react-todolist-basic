@@ -2,6 +2,18 @@ import React from "react";
 import { TodoItem } from "./TodoItem.jsx";
 
 export const TodoList = ({ todos, setTodos }) => {
+  const handleToggle = (id) => {
+    setTodos(
+      todos.map((todo) => {
+        if (todo.id === id) {
+          return { ...todo, completed: !todo.completed };
+        } else {
+          return todo;
+        }
+      }),
+    );
+  };
+
   const handleDelete = (id) => {
     setTodos(todos.filter((todo) => todo.id !== id));
   };
@@ -18,7 +30,8 @@ export const TodoList = ({ todos, setTodos }) => {
                 <TodoItem
                   key={todo.id}
                   todo={todo}
-                  handleDelete={handleDelete}
+                  onToggle={handleToggle}
+                  onDelete={handleDelete}
                 />
               ))}
           </ul>
@@ -35,7 +48,8 @@ export const TodoList = ({ todos, setTodos }) => {
                 <TodoItem
                   key={todo.id}
                   todo={todo}
-                  handleDelete={handleDelete}
+                  onToggle={handleToggle}
+                  onDelete={handleDelete}
                 />
               ))}
           </ul>
