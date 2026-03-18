@@ -31,19 +31,18 @@ body {
 }
 
 .app-header {
+  display: flex;
+  gap: 10px;
   margin-bottom: 32px;
 }
 
 .app-title {
   font-size: 28px;
-  font-weight: 700;
+  font-weight: 800;
   color: #111;
-  display: flex;
-  align-items: baseline;
-  gap: 8px;
 }
 
-.app-title-date {
+.app-title-count {
   font-size: 28px;
   font-weight: 400;
   color: #bbb;

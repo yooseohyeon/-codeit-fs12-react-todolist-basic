@@ -20,10 +20,15 @@ function App() {
     },
   ]);
 
+  const completedCount = todos.filter((todo) => !todo.completed).length;
+
   return (
     <div className="app">
       <div className="app-header">
-        <h1 className="app-title">Todo List</h1>
+        <h1 className="app-title">TO-DO LIST</h1>
+        {completedCount > 0 && (
+          <span className="app-title-count">{completedCount}</span>
+        )}
       </div>
       <TodoForm
         todos={todos}
