@@ -1,6 +1,6 @@
 import React from "react";
 
-export const TodoItem = ({ todo }) => {
+export const TodoItem = ({ todo, handleDelete }) => {
   const formattedDate = new Intl.DateTimeFormat("ko-KR", {
     year: "numeric",
     month: "long",
@@ -16,7 +16,9 @@ export const TodoItem = ({ todo }) => {
       <span>{formattedDate}</span>
       <div>
         <button type="button">{todo.completed ? "취소" : "완료"}</button>
-        <button type="button">삭제</button>
+        <button type="button" onClick={() => handleDelete(todo.id)}>
+          삭제
+        </button>
       </div>
     </div>
   );

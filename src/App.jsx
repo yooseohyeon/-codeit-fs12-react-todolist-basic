@@ -29,7 +29,7 @@ function App() {
         title={title}
         setTitle={setTitle}
       />
-      <TodoList todos={todos} />
+      <TodoList todos={todos} setTodos={setTodos} />
     </>
   );
 }

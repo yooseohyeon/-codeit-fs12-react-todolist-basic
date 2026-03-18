@@ -1,7 +1,11 @@
 import React from "react";
 import { TodoItem } from "./TodoItem.jsx";
 
-export const TodoList = ({ todos }) => {
+export const TodoList = ({ todos, setTodos }) => {
+  const handleDelete = (id) => {
+    setTodos(todos.filter((todo) => todo.id !== id));
+  };
+
   return (
     <div>
       {todos.some((todo) => !todo.completed) && (
@@ -11,7 +15,11 @@ export const TodoList = ({ todos }) => {
             {todos
               .filter((todo) => !todo.completed)
               .map((todo) => (
-                <TodoItem key={todo.id} todo={todo} />
+                <TodoItem
+                  key={todo.id}
+                  todo={todo}
+                  handleDelete={handleDelete}
+                />
               ))}
           </ul>
         </div>
@@ -24,7 +32,11 @@ export const TodoList = ({ todos }) => {
             {todos
               .filter((todo) => todo.completed)
               .map((todo) => (
-                <TodoItem key={todo.id} todo={todo} />
+                <TodoItem
+                  key={todo.id}
+                  todo={todo}
+                  handleDelete={handleDelete}
+                />
               ))}
           </ul>
         </div>
