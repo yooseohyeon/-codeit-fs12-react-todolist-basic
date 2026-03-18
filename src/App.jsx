@@ -4,6 +4,7 @@ import { TodoForm } from "./components/TodoForm";
 import { TodoList } from "./components/TodoList";
 
 function App() {
+  const [title, setTitle] = useState("");
   const [todos, setTodos] = useState([
     {
       id: 1,
@@ -22,7 +23,12 @@ function App() {
   return (
     <>
       <h1>Todo List</h1>
-      <TodoForm />
+      <TodoForm
+        todos={todos}
+        setTodos={setTodos}
+        title={title}
+        setTitle={setTitle}
+      />
       <TodoList todos={todos} />
     </>
   );
