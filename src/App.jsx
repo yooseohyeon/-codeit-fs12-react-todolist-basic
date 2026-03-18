@@ -1,11 +1,31 @@
-import './App.css'
+import "./App.css";
+import { useState } from "react";
+import { TodoForm } from "./components/TodoForm";
+import { TodoList } from "./components/TodoList";
 
 function App() {
+  const [todos, setTodos] = useState([
+    {
+      id: 1,
+      title: "할일",
+      completed: false,
+      createdAt: "2026-03-18T12:00:00.000Z",
+    },
+    {
+      id: 2,
+      title: "할일",
+      completed: true,
+      createdAt: "2026-03-18T12:00:00.000Z",
+    },
+  ]);
+
   return (
     <>
       <h1>Todo List</h1>
+      <TodoForm />
+      <TodoList todos={todos} />
     </>
-  )
+  );
 }
 
-export default App
+export default App;
