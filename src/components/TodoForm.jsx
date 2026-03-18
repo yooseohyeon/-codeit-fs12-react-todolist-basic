@@ -19,15 +19,15 @@ export const TodoForm = ({ todos, setTodos, title, setTitle }) => {
         setTitle("");
       }}
     >
+      <label htmlFor="todoTitle">할 일</label>
       <input
         type="text"
+        id="todoTitle"
         value={title}
-        onChange={(e) => {
-          setTitle(e.target.value);
-        }}
+        onChange={(e) => setTitle(e.target.value)}
         placeholder="할 일을 입력하세요"
         required
-      ></input>
+      />
       <button type="submit">추가</button>
     </form>
   );
