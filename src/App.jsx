@@ -21,8 +21,10 @@ function App() {
   ]);
 
   return (
-    <>
-      <h1>Todo List</h1>
+    <div className="app">
+      <div className="app-header">
+        <h1 className="app-title">Todo List</h1>
+      </div>
       <TodoForm
         todos={todos}
         setTodos={setTodos}
@@ -30,7 +32,7 @@ function App() {
         setTitle={setTitle}
       />
       <TodoList todos={todos} setTodos={setTodos} />
-    </>
+    </div>
   );
 }
 

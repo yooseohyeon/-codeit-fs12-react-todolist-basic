@@ -1,9 +1,0 @@
-.container {
-  max-width: 500px;
-  margin: 0 auto;
-}
-
-.completed {
-  text-decoration: line-through;
-  color: #aaa;
-}

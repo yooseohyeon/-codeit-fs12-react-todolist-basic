@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import { TodoItem } from "./TodoItem.jsx";
+import styles from "./TodoList.module.css";
 
 export const TodoList = ({ todos, setTodos }) => {
   const handleToggle = (id) => {
@@ -21,9 +22,9 @@ export const TodoList = ({ todos, setTodos }) => {
   return (
     <div>
       {todos.some((todo) => !todo.completed) && (
-        <div>
-          <h2>할 일 목록</h2>
-          <ul>
+        <div className={styles.section}>
+          <h2 className={styles.sectionTitle}>할 일 목록</h2>
+          <ul className={styles.list}>
             {todos
               .filter((todo) => !todo.completed)
               .map((todo) => (
@@ -39,9 +40,9 @@ export const TodoList = ({ todos, setTodos }) => {
       )}
 
       {todos.some((todo) => todo.completed) && (
-        <div>
-          <h2>완료 목록</h2>
-          <ul>
+        <div className={styles.section}>
+          <h2 className={styles.sectionTitle}>완료 목록</h2>
+          <ul className={styles.list}>
             {todos
               .filter((todo) => todo.completed)
               .map((todo) => (

@@ -1,0 +1,77 @@
+.item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 0;
+  border-bottom: 1px solid #efefef;
+  list-style: none;
+}
+
+.content {
+  flex: 1;
+  min-width: 0;
+}
+
+.title {
+  font-size: 15px;
+  font-weight: 500;
+  color: #111;
+  margin-bottom: 3px;
+}
+
+.titleDone {
+  text-decoration: line-through;
+  color: #bbb;
+}
+
+.date {
+  font-size: 11px;
+  color: #bbb;
+}
+
+.toggleBtn {
+  flex-shrink: 0;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  background: transparent;
+  color: #999;
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 500;
+  padding: 4px 10px;
+  cursor: pointer;
+  transition:
+    border-color 0.15s,
+    color 0.15s;
+}
+
+.toggleBtn:hover {
+  border-color: #111;
+  color: #111;
+}
+
+.toggleBtnDone {
+  color: #bbb;
+  border-color: #eee;
+}
+
+.toggleBtnDone:hover {
+  border-color: #999;
+  color: #999;
+}
+
+.deleteBtn {
+  flex-shrink: 0;
+  border: none;
+  background: transparent;
+  color: #d0d0d0;
+  font-size: 18px;
+  line-height: 1;
+  cursor: pointer;
+  padding: 0 2px;
+  transition: color 0.15s;
+}
+
+.deleteBtn:hover {
+  color: #aaa;
+}

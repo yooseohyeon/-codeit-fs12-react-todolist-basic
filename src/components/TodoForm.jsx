@@ -1,11 +1,12 @@
 import React from "react";
+import styles from "./TodoForm.module.css";
 
 export const TodoForm = ({ todos, setTodos, title, setTitle }) => {
   return (
     <form
+      className={styles.form}
       onSubmit={(e) => {
         e.preventDefault();
-
         const newTodos = [
           ...todos,
           {
@@ -19,16 +20,23 @@ export const TodoForm = ({ todos, setTodos, title, setTitle }) => {
         setTitle("");
       }}
     >
-      <label htmlFor="todoTitle">할 일</label>
-      <input
-        type="text"
-        id="todoTitle"
-        value={title}
-        onChange={(e) => setTitle(e.target.value)}
-        placeholder="할 일을 입력하세요"
-        required
-      />
-      <button type="submit">추가</button>
+      <label className={styles.label} htmlFor="todoTitle">
+        할 일
+      </label>
+      <div className={styles.inputGroup}>
+        <input
+          type="text"
+          id="todoTitle"
+          value={title}
+          onChange={(e) => setTitle(e.target.value)}
+          placeholder="할 일을 입력하세요"
+          required
+          className={styles.input}
+        />
+        <button type="submit" className={styles.submitBtn}>
+          추가
+        </button>
+      </div>
     </form>
   );
 };
