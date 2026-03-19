@@ -4,7 +4,6 @@ import { TodoForm } from "./components/TodoForm";
 import { TodoList } from "./components/TodoList";
 
 function App() {
-  const [title, setTitle] = useState("");
   const [todos, setTodos] = useState([
     {
       id: 1,
@@ -30,7 +29,7 @@ function App() {
           <span className="app-title-count">{completedCount}</span>
         )}
       </div>
-      <TodoForm setTodos={setTodos} title={title} setTitle={setTitle} />
+      <TodoForm setTodos={setTodos} />
       <TodoList todos={todos} setTodos={setTodos} />
     </div>
   );

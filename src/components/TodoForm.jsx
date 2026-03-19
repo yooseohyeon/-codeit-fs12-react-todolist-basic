@@ -1,7 +1,10 @@
 import React from "react";
+import { useState } from "react";
 import styles from "./TodoForm.module.css";
 
-export const TodoForm = ({ setTodos, title, setTitle }) => {
+export const TodoForm = ({ setTodos }) => {
+  const [title, setTitle] = useState("");
+
   return (
     <form
       className={styles.form}
