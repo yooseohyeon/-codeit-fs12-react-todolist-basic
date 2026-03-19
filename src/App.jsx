@@ -30,12 +30,7 @@ function App() {
           <span className="app-title-count">{completedCount}</span>
         )}
       </div>
-      <TodoForm
-        todos={todos}
-        setTodos={setTodos}
-        title={title}
-        setTitle={setTitle}
-      />
+      <TodoForm setTodos={setTodos} title={title} setTitle={setTitle} />
       <TodoList todos={todos} setTodos={setTodos} />
     </div>
   );

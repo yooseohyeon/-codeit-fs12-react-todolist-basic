@@ -1,22 +1,21 @@
 import React from "react";
 import styles from "./TodoForm.module.css";
 
-export const TodoForm = ({ todos, setTodos, title, setTitle }) => {
+export const TodoForm = ({ setTodos, title, setTitle }) => {
   return (
     <form
       className={styles.form}
       onSubmit={(e) => {
         e.preventDefault();
-        const newTodos = [
-          ...todos,
+        setTodos((prev) => [
+          ...prev,
           {
             id: Date.now(),
             title: title,
             completed: false,
             createdAt: new Date().toISOString(),
           },
-        ];
-        setTodos(newTodos);
+        ]);
         setTitle("");
       }}
     >
