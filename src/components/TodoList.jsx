@@ -1,8 +1,10 @@
-import React, { useState } from "react";
-import { TodoItem } from "./TodoItem.jsx";
-import styles from "./TodoList.module.css";
+import React from "react";
+import { TodoSection } from "./TodoSection.jsx";
 
 export const TodoList = ({ todos, setTodos }) => {
+  const activeTodos = todos.filter((todo) => !todo.completed);
+  const completedTodos = todos.filter((todo) => todo.completed);
+
   const handleToggle = (id) => {
     setTodos((prev) =>
       prev.map((todo) =>
@@ -17,41 +19,18 @@ export const TodoList = ({ todos, setTodos }) => {
 
   return (
     <div>
-      {todos.some((todo) => !todo.completed) && (
-        <div className={styles.section}>
-          <h2 className={styles.sectionTitle}>할 일 목록</h2>
-          <ul className={styles.list}>
-            {todos
-              .filter((todo) => !todo.completed)
-              .map((todo) => (
-                <TodoItem
-                  key={todo.id}
-                  todo={todo}
-                  onToggle={handleToggle}
-                  onDelete={handleDelete}
-                />
-              ))}
-          </ul>
-        </div>
-      )}
-
-      {todos.some((todo) => todo.completed) && (
-        <div className={styles.section}>
-          <h2 className={styles.sectionTitle}>완료 목록</h2>
-          <ul className={styles.list}>
-            {todos
-              .filter((todo) => todo.completed)
-              .map((todo) => (
-                <TodoItem
-                  key={todo.id}
-                  todo={todo}
-                  onToggle={handleToggle}
-                  onDelete={handleDelete}
-                />
-              ))}
-          </ul>
-        </div>
-      )}
+      <TodoSection
+        title="할 일 목록"
+        todos={activeTodos}
+        onToggle={handleToggle}
+        onDelete={handleDelete}
+      />
+      <TodoSection
+        title="완료 목록"
+        todos={completedTodos}
+        onToggle={handleToggle}
+        onDelete={handleDelete}
+      />
     </div>
   );
 };
