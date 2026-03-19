@@ -5,23 +5,22 @@ import styles from "./TodoForm.module.css";
 export const TodoForm = ({ setTodos }) => {
   const [title, setTitle] = useState("");
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setTodos((prev) => [
+      ...prev,
+      {
+        id: Date.now(),
+        title: title,
+        completed: false,
+        createdAt: new Date().toISOString(),
+      },
+    ]);
+    setTitle("");
+  };
+
   return (
-    <form
-      className={styles.form}
-      onSubmit={(e) => {
-        e.preventDefault();
-        setTodos((prev) => [
-          ...prev,
-          {
-            id: Date.now(),
-            title: title,
-            completed: false,
-            createdAt: new Date().toISOString(),
-          },
-        ]);
-        setTitle("");
-      }}
-    >
+    <form className={styles.form} onSubmit={handleSubmit}>
       <label className={styles.label} htmlFor="todoTitle">
         할 일
       </label>
